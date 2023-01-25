@@ -1,7 +1,7 @@
 <script>
 import { store } from '../data/store.js' //imported store object
 import ButtonsPage from './utilities_components/ButtonsPage.vue'
-import AppLoader from './utilities_components/AppLoader.vue'
+import GraphicLoader from './utilities_components/GraphicLoader.vue'
 import PokemonCard from './pokemon_components/PokemonCard.vue'
 export default {
     name: 'AppMain',
@@ -10,11 +10,11 @@ export default {
             store
         }
     },
-    components: { AppLoader, ButtonsPage, PokemonCard }
+    components: { GraphicLoader, ButtonsPage, PokemonCard }
 }
 </script>
 <template>
-    <app-loader v-if="store.isLoading"></app-loader>
+    <graphic-loader v-if="store.isLoading"></graphic-loader>
     <div v-else class="container wrap">
         <figure class="d-flex justify-content-center mt-2">
             <img src="../../public/img/pokedex.png" alt="pokedex">
