@@ -20,9 +20,9 @@ export default {
                 </figure>
             </figure>
             <address :class="type.toLowerCase()" class="text-center">
-                <h4>{{ name }}</h4>
-                <h5><span>TYPE:</span> {{ type }}</h5>
-                <h5><span>WEIGHT:</span> {{ weight }} kg</h5>
+                <h5>{{ name }}</h5>
+                <h6><span>TYPE:</span> {{ type }}</h6>
+                <h6><span>WEIGHT:</span> {{ weight }} kg</h6>
             </address>
         </div>
     </li>
@@ -47,7 +47,7 @@ address {
     border-radius: 0 0 20px 20px;
 }
 
-h4 {
+h5 {
     font-weight: 800;
 }
 
