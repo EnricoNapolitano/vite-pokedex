@@ -25,12 +25,12 @@ export default {
       axios.get(endpoint)
         .then((res) => {
           this.pokemonsType = res.data;
-          this.pokemonsType.unshift('-- --');
+          this.pokemonsType.unshift('-- COME BACK --');
         })
     },
     fetchSameType(word) {
       this.SelectedType = word;
-      if (word === '-- --') this.fetchPokemons(this.pokedexUri);
+      if (word === '-- COME BACK --') this.fetchPokemons(this.pokedexUri);
       else {
         axios.get(`${this.pokedexUri}?eq[Type1]=${word}`)
           .then((res) => {
