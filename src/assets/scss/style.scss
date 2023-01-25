@@ -27,22 +27,46 @@ ul {
     background-color: $green;
 }
 
-.ice {
+.ice,
+.water {
     background-color: $blue;
 }
 
 .fire {
-    background-color: $red;
+    background-color: $orange;
 }
 
-.bug {
+.bug,
+.fighting,
+.dark,
+.steel,
+.rock {
     background-color: $black;
 }
 
-.poison {
+.poison,
+.psychic,
+.ghost {
     background-color: $purple;
 }
 
 .normal {
     background-color: $pink;
+}
+
+.electric {
+    background-color: $yellow;
+}
+
+.ground {
+    background-color: $brown;
+}
+
+.dragon,
+.flying {
+    background-color: $dark-blue;
+}
+
+.fairy {
+    background-color: $fuchsia;
 }
