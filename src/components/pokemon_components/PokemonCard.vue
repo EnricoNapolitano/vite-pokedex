@@ -11,7 +11,6 @@ export default {
 }
 </script>
 <template>
-    <!-- Single pokemon card -->
     <li class="col">
         <div class="cs-card  mb-5">
             <figure>
