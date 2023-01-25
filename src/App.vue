@@ -3,6 +3,9 @@ import axios from 'axios'
 import AppHeader from './components/AppHeader.vue'
 import AppMain from './components/AppMain.vue'
 import { store } from './data/store.js' //imported store object
+
+let nIncrement = 1;
+
 export default {
   data() {
     return {
@@ -42,6 +45,13 @@ export default {
             store.pokemons = res.data.docs;
           })
       }
+    },
+    changePage(n) {
+      nIncrement += n;
+      axios.get(`${this.pokedexUri}?per=10&page=${nIncrement}`)
+        .then((res) => {
+          store.pokemons = res.data.docs;
+        })
     }
   },
   mounted() {
@@ -53,7 +63,7 @@ export default {
 
 <template>
   <app-header :type="pokemonsType" @change-option="fetchSameType"></app-header>
-  <app-main></app-main>
+  <app-main @button-clicked="changePage"></app-main>
 </template>
 
 <style lang="scss">

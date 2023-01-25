@@ -1,9 +1,14 @@
-<script></script>
+<script>
+export default {
+    name: "ButtonsPage",
+    emits: ['button-clicked']
+}
+</script>
 <template>
-    <div class="cs-btn next">
+    <div class="cs-btn next" @click="$emit('button-clicked', 1)">
         <img src="../../../public/img/next.png" alt="button next">
     </div>
-    <div class="cs-btn prev">
+    <div class="cs-btn prev" @click="$emit('button-clicked', -1)">
         <img src="../../../public/img/prev.png" alt="button previous">
     </div>
 </template>

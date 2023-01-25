@@ -7,6 +7,13 @@ export default {
     name: 'AppMain',
     data() { return { store } },
     components: { GraphicLoader, SelectTag, CardsList },
+    emits: ['button-clicked'],
+    methods: {
+        onButtonClick(n) {
+            this.$emit('button-clicked', n)
+        }
+    }
+
 }
 </script>
 <template>
@@ -15,7 +22,7 @@ export default {
     <!-- BEGINNING OF CONTENT -->
     <div v-else class="container wrap">
         <!-- POKEMON'S LIST -->
-        <cards-list></cards-list>
+        <cards-list @button-clicked="onButtonClick"></cards-list>
     </div>
 
 </template>

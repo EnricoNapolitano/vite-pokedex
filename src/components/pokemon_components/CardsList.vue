@@ -7,6 +7,12 @@ export default {
     data() { return { store } },
     props: { type: Array },
     components: { PokemonCard, ButtonsPage },
+    emits: ['button-clicked'],
+    methods: {
+        onButtonClick(n) {
+            this.$emit('button-clicked', n)
+        }
+    }
 }
 </script>
 <template>
@@ -15,6 +21,6 @@ export default {
         <pokemon-card v-for="pokemon in store.pokemons" :key="pokemon._id" :name="pokemon.name" :type="pokemon.type1"
             :img="pokemon.imageUrl" :weight="pokemon.weight">
         </pokemon-card>
-        <ButtonsPage></ButtonsPage>
+        <ButtonsPage @button-clicked="onButtonClick"></ButtonsPage>
     </ul>
 </template>
