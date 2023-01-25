@@ -6,14 +6,7 @@ import CardsList from './pokemon_components/CardsList.vue'
 export default {
     name: 'AppMain',
     data() { return { store } },
-    props: { type: Array },
     components: { GraphicLoader, SelectTag, CardsList },
-    emits: ['change-option'],
-    methods: {
-        onChangeOption(word) {
-            this.$emit('change-option', word);
-        }
-    }
 }
 </script>
 <template>
@@ -28,15 +21,6 @@ export default {
 </template>
 <style lang="scss" scoped>
 @use '../assets/scss/partials/mixins' as *;
-
-select {
-    display: block;
-    margin: 0 auto;
-    width: 488px;
-    padding: 10px;
-    border-radius: 5px;
-    font-size: 1.5rem;
-}
 
 ul {
     margin-top: 20px;

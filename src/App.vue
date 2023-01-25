@@ -52,8 +52,8 @@ export default {
 </script>
 
 <template>
-  <app-header></app-header>
-  <app-main :type="pokemonsType" @change-option="fetchSameType"></app-main>
+  <app-header :type="pokemonsType" @change-option="fetchSameType"></app-header>
+  <app-main></app-main>
 </template>
 
 <style lang="scss">
