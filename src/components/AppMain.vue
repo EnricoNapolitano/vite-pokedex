@@ -20,14 +20,7 @@ export default {
     <!-- loader -->
     <graphic-loader v-if="store.isLoading"></graphic-loader>
     <!-- BEGINNING OF CONTENT -->
-    <div v-else class="container wrap">>
-        <h1>
-            <figure class="title d-flex justify-content-center mt-2">
-                <img src="../../public/img/pokedex.png" alt="pokedex">
-            </figure>
-        </h1>
-        <!-- SELECT -->
-        <select-tag :type="type" @change-option="onChangeOption"></select-tag>
+    <div v-else class="container wrap">
         <!-- POKEMON'S LIST -->
         <cards-list></cards-list>
     </div>

@@ -1,5 +1,6 @@
 <script>
 import axios from 'axios'
+import AppHeader from './components/AppHeader.vue'
 import AppMain from './components/AppMain.vue'
 import { store } from './data/store.js' //imported store object
 export default {
@@ -10,7 +11,7 @@ export default {
       SelectedType: '',
     }
   },
-  components: { AppMain },
+  components: { AppHeader, AppMain },
   methods: {
     //get base uri of pokemon's API
     fetchPokemons(uri) {
@@ -51,6 +52,7 @@ export default {
 </script>
 
 <template>
+  <app-header></app-header>
   <app-main :type="pokemonsType" @change-option="fetchSameType"></app-main>
 </template>
 
