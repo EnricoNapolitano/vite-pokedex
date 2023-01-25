@@ -1,11 +1,48 @@
-// RESET
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+@use './partials/variables' as *;
+
+//***GENERICS***
+body {
+    font-family: "Rajdhani", sans-serif;
+    background-color: $red;
 }
 
-// GENERICS
-body {
-    font-family: "Montserrat", sans-serif;
+img {
+    max-width: 50%;
+    object-fit: cover;
+}
+
+ul {
+    list-style: none;
+    padding: 0;
+}
+
+//***UTILITIES***
+//container
+.wrap {
+    max-width: 1000px;
+}
+
+// colors
+.grass {
+    background-color: $green;
+}
+
+.ice {
+    background-color: $blue;
+}
+
+.fire {
+    background-color: $red;
+}
+
+.bug {
+    background-color: $black;
+}
+
+.poison {
+    background-color: $purple;
+}
+
+.normal {
+    background-color: $pink;
 }
