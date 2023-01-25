@@ -12,15 +12,18 @@ export default {
   },
   components: { AppMain },
   methods: {
+    //get base uri of pokemon's API
     fetchPokemons(uri) {
       store.isLoading = true;
       axios.get(uri)
         .then((res) => {
+          //put the array in the store.js
           store.pokemons = res.data.docs;
         }).catch().then(() => {
           store.isLoading = false;
         })
     },
+    //create an array of pokemons' type
     fetchPokemonsType(endpoint) {
       axios.get(endpoint)
         .then((res) => {
@@ -28,6 +31,7 @@ export default {
           this.pokemonsType.unshift('-- COME BACK --');
         })
     },
+    //gives back an array of pokemons belonging to a same type
     fetchSameType(word) {
       this.SelectedType = word;
       if (word === '-- COME BACK --') this.fetchPokemons(this.pokedexUri);
