@@ -14,14 +14,19 @@ export default {
 }
 </script>
 <template>
+    <!-- loader -->
     <graphic-loader v-if="store.isLoading"></graphic-loader>
+    <!-- content -->
     <div v-else class="container wrap">
-        <figure class="d-flex justify-content-center mt-2">
-            <img src="../../public/img/pokedex.png" alt="pokedex">
-        </figure>
-        <!-- bootstrap classes in ul's tag -->
+        <!-- title page -->
+        <h1>
+            <figure class="title d-flex justify-content-center mt-2">
+                <img src="../../public/img/pokedex.png" alt="pokedex">
+            </figure>
+        </h1>
+        <!-- pokemon's list -->
         <ul class="row-cols-sm-3 row row-cols-lg-5 justify-content-center">
-            <!-- component pokemon card -->
+            <!-- pokemon card -->
             <pokemon-card v-for="pokemon in store.pokemons" :key="pokemon._id" :name="pokemon.name"
                 :type="pokemon.type1" :img="pokemon.imageUrl" :weight="pokemon.weight">
             </pokemon-card>
