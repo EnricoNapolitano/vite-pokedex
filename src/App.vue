@@ -48,13 +48,14 @@ export default {
     },
     changePage(n) {
       nIncrement += n;
+      //going to specific page... first page, second, third...
       axios.get(`${this.pokedexUri}?per=10&page=${nIncrement}`)
         .then((res) => {
           if (nIncrement < 1) {
-            nIncrement = 1
+            nIncrement = 1 //it is not possible to go before the first page
             return;
           } else if (nIncrement > res.data.totalPages) {
-            nIncrement = res.data.totalPages;
+            nIncrement = res.data.totalPages; //it is not possible to go further than the last page
             return;
           }
           store.pokemons = res.data.docs;
