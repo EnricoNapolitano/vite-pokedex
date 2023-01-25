@@ -1,32 +1,40 @@
 <script>
 import { store } from '../data/store.js' //imported store object
-import ButtonsPage from './utilities_components/ButtonsPage.vue'
 import GraphicLoader from './utilities_components/GraphicLoader.vue'
+import SelectTag from './utilities_components/SelectTag.vue'
 import PokemonCard from './pokemon_components/PokemonCard.vue'
+import ButtonsPage from './utilities_components/ButtonsPage.vue'
 export default {
     name: 'AppMain',
     data() {
         return {
-            store
+            store,
         }
     },
-    components: { GraphicLoader, ButtonsPage, PokemonCard }
+    props: { type: Array },
+    components: { GraphicLoader, SelectTag, PokemonCard, ButtonsPage, },
+    emits: ['change-option'],
+    methods: {
+        onChangeOption(word) {
+            this.$emit('change-option', word);
+        }
+    }
 }
 </script>
 <template>
     <!-- loader -->
     <graphic-loader v-if="store.isLoading"></graphic-loader>
     <!-- content -->
-    <div v-else class="container wrap">
-        <!-- title page -->
+    <div v-else class="container wrap">>
         <h1>
             <figure class="title d-flex justify-content-center mt-2">
                 <img src="../../public/img/pokedex.png" alt="pokedex">
             </figure>
         </h1>
+        <!-- select -->
+        <select-tag :type="type" @change-option="onChangeOption"></select-tag>
         <!-- pokemon's list -->
         <ul class="row-cols-sm-3 row row-cols-lg-5 justify-content-center">
-            <!-- pokemon card -->
             <pokemon-card v-for="pokemon in store.pokemons" :key="pokemon._id" :name="pokemon.name"
                 :type="pokemon.type1" :img="pokemon.imageUrl" :weight="pokemon.weight">
             </pokemon-card>
@@ -37,6 +45,15 @@ export default {
 </template>
 <style lang="scss" scoped>
 @use '../assets/scss/partials/mixins' as *;
+
+select {
+    display: block;
+    margin: 0 auto;
+    width: 488px;
+    padding: 10px;
+    border-radius: 5px;
+    font-size: 1.5rem;
+}
 
 ul {
     margin-top: 20px;
