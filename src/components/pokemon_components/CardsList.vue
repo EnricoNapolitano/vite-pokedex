@@ -10,6 +10,7 @@ export default {
 }
 </script>
 <template>
+    <!-- POKEMON CARDS LIST -->
     <ul class="row-cols-sm-3 row row-cols-lg-5 justify-content-center">
         <pokemon-card v-for="pokemon in store.pokemons" :key="pokemon._id" :name="pokemon.name" :type="pokemon.type1"
             :img="pokemon.imageUrl" :weight="pokemon.weight">
