@@ -2,17 +2,12 @@
 import { store } from '../data/store.js' //imported store object
 import GraphicLoader from './utilities_components/GraphicLoader.vue'
 import SelectTag from './utilities_components/SelectTag.vue'
-import PokemonCard from './pokemon_components/PokemonCard.vue'
-import ButtonsPage from './utilities_components/ButtonsPage.vue'
+import CardsList from './pokemon_components/CardsList.vue'
 export default {
     name: 'AppMain',
-    data() {
-        return {
-            store,
-        }
-    },
+    data() { return { store } },
     props: { type: Array },
-    components: { GraphicLoader, SelectTag, PokemonCard, ButtonsPage, },
+    components: { GraphicLoader, SelectTag, CardsList },
     emits: ['change-option'],
     methods: {
         onChangeOption(word) {
@@ -24,22 +19,17 @@ export default {
 <template>
     <!-- loader -->
     <graphic-loader v-if="store.isLoading"></graphic-loader>
-    <!-- content -->
+    <!-- BEGINNING OF CONTENT -->
     <div v-else class="container wrap">>
         <h1>
             <figure class="title d-flex justify-content-center mt-2">
                 <img src="../../public/img/pokedex.png" alt="pokedex">
             </figure>
         </h1>
-        <!-- select -->
+        <!-- SELECT -->
         <select-tag :type="type" @change-option="onChangeOption"></select-tag>
-        <!-- pokemon's list -->
-        <ul class="row-cols-sm-3 row row-cols-lg-5 justify-content-center">
-            <pokemon-card v-for="pokemon in store.pokemons" :key="pokemon._id" :name="pokemon.name"
-                :type="pokemon.type1" :img="pokemon.imageUrl" :weight="pokemon.weight">
-            </pokemon-card>
-            <ButtonsPage></ButtonsPage>
-        </ul>
+        <!-- POKEMON'S LIST -->
+        <cards-list></cards-list>
     </div>
 
 </template>
