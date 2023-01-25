@@ -50,6 +50,13 @@ export default {
       nIncrement += n;
       axios.get(`${this.pokedexUri}?per=10&page=${nIncrement}`)
         .then((res) => {
+          if (nIncrement < 1) {
+            nIncrement = 1
+            return;
+          } else if (nIncrement > res.data.totalPages) {
+            nIncrement = res.data.totalPages;
+            return;
+          }
           store.pokemons = res.data.docs;
         })
     }
