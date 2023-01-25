@@ -15,7 +15,7 @@
     h2 {
         margin-top: 15rem;
         font-weight: 900;
-        font-size: 10rem;
+        font-size: 6rem;
     }
 }
 </style>
