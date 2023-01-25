@@ -15,13 +15,13 @@
 }
 
 .prev {
-    top: 475px;
+    top: 365px;
     left: 0;
     transform: translateX(-90%);
 }
 
 .next {
-    top: 475px;
+    top: 365px;
     right: 0;
     transform: translateX(90%);
 }
