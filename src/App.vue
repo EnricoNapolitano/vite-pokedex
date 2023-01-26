@@ -31,7 +31,7 @@ export default {
     fetchPokemonsType(endpoint) {
       axios.get(endpoint)
         .then((res) => {
-          this.pokemonsType = res.data;
+          this.pokemonsType = res.data.sort();
           this.pokemonsType.unshift('-- COME BACK --');
         })
     },
